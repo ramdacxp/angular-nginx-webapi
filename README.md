@@ -1,6 +1,6 @@
 # Angular NGINX WebAPI setup for Docker Compose
 
-This repo contains my reference `Dockerfile`s and config to
+This cheat sheet repo contains my reference `Dockerfile`s and configuration to setup a project containing:
 
 * Angular app
   * Build in Docker
@@ -10,7 +10,7 @@ This repo contains my reference `Dockerfile`s and config to
   * Executed in Docker container
 * Docker Compose
   * Build and hosting of all containers
-  * WebAPI NGINX Reverse Proxy for container network
+  * WebAPI NGINX reverse proxy for container network
   * Portainer compose setup
 
 ## Angular SPA
@@ -36,6 +36,16 @@ docker build -t agw-client .
 docker run -it --rm -p 8080:80 agw-client
 ```
 
+## Net6 WebAPI
+
+Create via:
+
+```cmd
+mkdir backend
+cd backend
+dotnet new webapi
+```
+
 ## Docker Compose
 
 Build all docker containers with `docker compose build`.
@@ -48,6 +58,16 @@ Startup all containers within a private network via `docker compose up` (press `
 
 * Used Portainer Version: **1.24.2**
 * Portainer Stacks support the [Docker Compose file format](https://docs.docker.com/compose/compose-file/) **v2**.
+
+A new Portainer "Stack" can be created based on the `docker-compose.yml` file in this git repo.
+
+* In the Portainer UI navigate to "Stackes" and choose [+ Add stack].
+* Provide a name and create a stack based on git repository with repository url:
+
+  `https://github.com/ramdacxp/angular-nginx-webapi`
+
+* After download and build (!) the container images should be available to be executed.  
+  This even works on an Rasberry Pi, where everything is built for the ARM architecture.
 
 ## Links
 
