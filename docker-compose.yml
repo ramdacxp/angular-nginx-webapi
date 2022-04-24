@@ -1,10 +1,21 @@
 version: "2.0"
 
 services:
+
+  api:
+    container_name: agw-api
+    restart: unless-stopped
+    build:
+      context: backend
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+
   web:
-    container_name: web
+    container_name: agw-web
     restart: unless-stopped
     build:
       context: client
     ports:
-      - '8080:80'
+      - '8088:80'
+    depends_on:
+      - api

@@ -48,11 +48,21 @@ dotnet new webapi
 
 Disable HTTPS redirect and always enable Swagger (in `Program.cs`) and change applicationUrl to `http://localhost:5000` (in `Properties\launchSettings.json`).
 
+Build via Docker and run it:
+
+```cmd
+docker build -t agw-backend .
+docker run -it --rm -p 8080:80 agw-backend
+```
+
 ## Docker Compose
 
 Build all docker containers with `docker compose build`.
 
 Startup all containers within a private network via `docker compose up` (press `Ctrl-C` to shutdown).
+
+* Webapp: http://localhost:8088/
+* WebApi via reverse proxy: http://localhost:8088/api/WeatherForecast
 
 ## Portainer
 
@@ -63,7 +73,7 @@ Startup all containers within a private network via `docker compose up` (press `
 
 A new Portainer "Stack" can be created based on the `docker-compose.yml` file in this git repo.
 
-* In the Portainer UI navigate to "Stackes" and choose [+ Add stack].
+* In the Portainer UI navigate to "Stacks" and choose [+ Add stack].
 * Provide a name and create a stack based on git repository with repository url:
 
   `https://github.com/ramdacxp/angular-nginx-webapi`
