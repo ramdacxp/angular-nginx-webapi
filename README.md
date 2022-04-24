@@ -46,6 +46,8 @@ cd backend
 dotnet new webapi
 ```
 
+Disable HTTPS redirect and always enable Swagger (in `Program.cs`) and change applicationUrl to `http://localhost:5000` (in `Properties\launchSettings.json`).
+
 ## Docker Compose
 
 Build all docker containers with `docker compose build`.
