@@ -1,0 +1,10 @@
+version: "2.0"
+
+services:
+  web:
+    container_name: web
+    restart: unless-stopped
+    build:
+     context: client
+    ports:
+      - '8080:80'
