@@ -36,6 +36,12 @@ docker build -t agw-client .
 docker run -it --rm -p 8080:80 agw-client
 ```
 
+## Docker Compose
+
+Build all docker containers with `docker compose build`.
+
+Startup all containers within a private network via `docker compose up` (press `Ctrl-C` to shutdown).
+
 ## Portainer
 
 [Portainer](https://www.portainer.io/) is a web user interface to manage docker containers and container stacks.

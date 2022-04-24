@@ -5,6 +5,6 @@ services:
     container_name: web
     restart: unless-stopped
     build:
-     context: client
+      context: client
     ports:
       - '8080:80'
